@@ -1,0 +1,31 @@
+package dosql;
+
+import java.sql.*;
+
+public class Select_Team_List {
+	ResultSet rs;
+	//²»ÂúµÄ¶ÓÎé
+	public Select_Team_List(){
+	String sql =" ";//new a table about the num of team with its status is true
+	
+	try {
+		Conn c = new Conn(sql);
+		rs=c.stmt.executeQuery(sql);
+		
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

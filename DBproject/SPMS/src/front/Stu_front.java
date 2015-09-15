@@ -3,22 +3,25 @@ package front;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JMenu;
+
+import MainPanel.*;
+
+
+
 import java.awt.FlowLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import java.awt.Panel;
+
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.CardLayout;
 
 public class Stu_front extends JFrame {
 
 	private JPanel contentPane;
-
+	JPanel panel=null;
 	/**
 	 * Launch the application.
 	 */
@@ -53,12 +56,15 @@ public class Stu_front extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Team List");
+		
 		mnNewMenu.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Apply a Team");
+		
 		mnNewMenu.add(mntmNewMenuItem_4);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("My Team");
+		
 		mnNewMenu.add(mntmNewMenuItem_5);
 		
 		JMenu mnNewMenu_1 = new JMenu("Personal");
@@ -83,8 +89,39 @@ public class Stu_front extends JFrame {
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Help");
 		mnNewMenu_2.add(mntmNewMenuItem_3);
 		
-		MJpanel panel = new MJpanel();
+		
+		panel =new Welcome_p();		
 		contentPane.add(panel, BorderLayout.CENTER);
+		
+		
+		
+		
+		mntmNewMenuItem.addActionListener(new ActionListener() {//Team list
+			public void actionPerformed(ActionEvent e) {
+				panel.setVisible(false);
+				contentPane.remove(panel);
+				panel = new MJpanel();
+				contentPane.add(panel, BorderLayout.CENTER);//保证加入的panel
+				//show Team List 
+				
+			}
+		});
+		mntmNewMenuItem_4.addActionListener(new ActionListener() {//Join a team
+			public void actionPerformed(ActionEvent e) {
+				panel.setVisible(false);
+				contentPane.remove(panel);
+				panel =new Apply_List_front();
+				contentPane.add(panel, BorderLayout.CENTER);
+			}
+		});
+		mntmNewMenuItem_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel.setVisible(false);
+				contentPane.remove(panel);
+				panel =new My_Team();
+				contentPane.add(panel, BorderLayout.CENTER);
+			}
+		});
 	}
 
 }

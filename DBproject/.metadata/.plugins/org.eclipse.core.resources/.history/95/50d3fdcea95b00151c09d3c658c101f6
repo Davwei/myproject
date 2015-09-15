@@ -1,0 +1,14 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+
+public class My_Team extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public My_Team() {
+
+	}
+
+}

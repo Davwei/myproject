@@ -1,0 +1,7 @@
+package dosql;
+
+public class login_sql {
+	public login_sql(String name,char [] pas){
+		
+	}
+}

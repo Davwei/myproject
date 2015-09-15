@@ -1,0 +1,49 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.JButton;
+
+public class My_Team extends JPanel {
+	private JTable table;
+	private JTable table_1;
+
+	/**
+	 * Create the panel.
+	 */
+	public My_Team() {
+		setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(27, 24, 242, 38);
+		add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblYourTeamId = new JLabel("Your team ID List as followed");
+		lblYourTeamId.setBounds(32, 10, 200, 15);
+		panel.add(lblYourTeamId);
+		
+		table = new JTable();
+		table.setBounds(27, 94, 242, 266);
+		add(table);
+		
+		JButton btnLeaveATeam = new JButton("Leave a Team");
+		btnLeaveATeam.setBounds(27, 389, 145, 23);
+		add(btnLeaveATeam);
+		
+		JButton btnWatchTeamate = new JButton("Watch teammate List");
+		btnWatchTeamate.setBounds(337, 39, 166, 23);
+		add(btnWatchTeamate);
+		
+		table_1 = new JTable();
+		table_1.setBounds(338, 94, 261, 266);
+		add(table_1);
+		
+		JButton btnNewButton = new JButton("Details");
+		btnNewButton.setBounds(513, 39, 86, 23);
+		add(btnNewButton);
+
+	}
+}

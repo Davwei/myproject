@@ -1,0 +1,21 @@
+package dosql;
+
+public class Select_Team_List {
+	
+	//²»ÂúµÄ¶ÓÎé
+	public Select_Team_List(){
+	String sql =" ";//new a table about the num of team with its status is true
+	Conn c = new Conn(sql);
+	
+	
+	
+	
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

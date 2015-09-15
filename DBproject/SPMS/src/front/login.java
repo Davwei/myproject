@@ -9,8 +9,12 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
+
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -24,13 +28,18 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JRadioButton;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JPasswordField;
-
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import dosql.login_sql;
 public class login {
 
 	private JFrame frame;
 	private JTextField textField;
 	private JPasswordField passwordField;
-
+	JRadioButton rdbtnNewRadioButton,rdbtnNewRadioButton_1,rdbtnNewRadioButton_2;
+	Frame s;
 	/**
 	 * Launch the application.
 	 */
@@ -40,6 +49,8 @@ public class login {
 				try {
 					login window = new login();
 					window.frame.setVisible(true);
+					
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -97,6 +108,8 @@ public class login {
 		panel_1.add(panel_5);
 		
 		JButton btnNewButton = new JButton("Submit");
+		
+		
 		panel_5.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancel");
@@ -119,13 +132,13 @@ public class login {
 		panel_1.add(panel_7);
 		panel_7.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("stu");
+		rdbtnNewRadioButton = new JRadioButton("stu");
 		panel_7.add(rdbtnNewRadioButton);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("tea");
+		rdbtnNewRadioButton_1 = new JRadioButton("tea");
 		panel_7.add(rdbtnNewRadioButton_1);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("admin");
+		rdbtnNewRadioButton_2 = new JRadioButton("admin");
 		panel_7.add(rdbtnNewRadioButton_2);
 		
 		ButtonGroup bg =new ButtonGroup();//ตฅัก
@@ -138,8 +151,60 @@ public class login {
 		panel_1.add(panel_2);
 		
 		JLabel lblNewLabel_2 = new JLabel("Copyright \u00A9 reserved 2015 Davwei");
-		panel_2.add(lblNewLabel_2);
+		lblNewLabel_2.setBounds(101, 154, 192, 15);
+		panel_1.add(lblNewLabel_2);
+		
+		
+		
+		btnNewButton.addActionListener(new ActionListener(){
+			//this is actionListener to make sure the diff from id and type
+
+			public void actionPerformed(ActionEvent e) {
+			String id;
+			char[] passw;
+			id=textField.getText();
+			passw=passwordField.getPassword();
+			String paw =new String(passw);
+			//System.out.println(paw);
+			login_sql l = null ;
+			if(id==""){
+				JOptionPane.showMessageDialog(null, "id is not null", "id is not null", JOptionPane.ERROR_MESSAGE);
+				}
+			if(paw==""){
+				
+				JOptionPane.showMessageDialog(null, "password is not null", "password is not null", JOptionPane.ERROR_MESSAGE);
+				}
+			if(rdbtnNewRadioButton.isSelected())
+				if(login_sql.check1(id, paw)){
+					s=new Stu_front();
+					s.setVisible(true);
+					frame.setVisible(false);
+					JOptionPane.showMessageDialog(null, "succeed login", "succeed login", JOptionPane.OK_CANCEL_OPTION);
+					}
+			if(rdbtnNewRadioButton_1.isSelected())
+				if(login_sql.check2(id, paw))
+					{
+					s=new Tea_front();
+					s.setVisible(true);
+					frame.setVisible(false);
+					}
+			if(rdbtnNewRadioButton_2.isSelected())
+				if(login_sql.check3(id, paw)){
+					
+					s=new Admin_front();
+					s.setVisible(true);
+					frame.setVisible(false);
+					}
+			
+		}
+		
+		
+	});	
+	
 		
 		frame.setResizable(false);
 	}
+
+	
+	
 }

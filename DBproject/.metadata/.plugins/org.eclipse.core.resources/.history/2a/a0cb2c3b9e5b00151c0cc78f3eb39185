@@ -1,0 +1,14 @@
+package front;
+
+import javax.swing.JPanel;
+
+public class Apply_List_front extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public Apply_List_front() {
+
+	}
+
+}
