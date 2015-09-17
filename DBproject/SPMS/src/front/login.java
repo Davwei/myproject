@@ -33,6 +33,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import dosql.login_sql;
+import utils.Stu;
 public class login {
 
 	private JFrame frame;
@@ -40,6 +41,7 @@ public class login {
 	private JPasswordField passwordField;
 	JRadioButton rdbtnNewRadioButton,rdbtnNewRadioButton_1,rdbtnNewRadioButton_2;
 	Frame s;
+	 static String SID=null;	
 	/**
 	 * Launch the application.
 	 */
@@ -47,6 +49,7 @@ public class login {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					login window = new login();
 					window.frame.setVisible(true);
 					
@@ -62,6 +65,7 @@ public class login {
 	 * Create the application.
 	 */
 	public login() {
+		
 		initialize();
 	}
 
@@ -69,6 +73,7 @@ public class login {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100,400,250);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -160,9 +165,10 @@ public class login {
 			//this is actionListener to make sure the diff from id and type
 
 			public void actionPerformed(ActionEvent e) {
-			String id;
+			String id=null;
 			char[] passw;
 			id=textField.getText();
+			login.SID=id;
 			passw=passwordField.getPassword();
 			String paw =new String(passw);
 			//System.out.println(paw);
@@ -176,7 +182,7 @@ public class login {
 				}
 			if(rdbtnNewRadioButton.isSelected())
 				if(login_sql.check1(id, paw)){
-					s=new Stu_front();
+					s=new Stu_front(login.SID);
 					s.setVisible(true);
 					frame.setVisible(false);
 					JOptionPane.showMessageDialog(null, "succeed login", "succeed login", JOptionPane.OK_CANCEL_OPTION);

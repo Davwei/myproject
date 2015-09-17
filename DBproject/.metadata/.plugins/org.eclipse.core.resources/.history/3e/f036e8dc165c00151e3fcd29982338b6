@@ -1,0 +1,9 @@
+package dosql;
+
+public class Update_Team_List {
+
+	public Update_Team_List() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

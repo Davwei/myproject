@@ -1,0 +1,97 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+import java.awt.CardLayout;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JLayeredPane;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.LineBorder;
+
+import dosql.Conn;
+
+import javax.swing.JList;
+import javax.swing.JButton;
+
+public class Team_List_stu extends JPanel {
+	private JTable table;
+
+	/**
+	 * Create the panel.
+	 */
+	public Team_List_stu() {
+		setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 701, 22);
+		add(panel);
+		
+		JLabel lblResultset = new JLabel("Result_set");
+		panel.add(lblResultset);
+		
+		JButton btnTeamdetails = new JButton("Team_details");
+		btnTeamdetails.setBounds(515, 39, 143, 23);
+		add(btnTeamdetails);
+		
+		JButton btnNewButton = new JButton("Project_details");
+		btnNewButton.setBounds(515, 87, 143, 23);
+		add(btnNewButton);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 308, 701, 99);
+		add(panel_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Team_List_stu.class.getResource("/resouse/part.jpg")));
+		panel_1.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("To be continue...");
+		lblNewLabel_1.setBounds(548, 143, 143, 15);
+		add(lblNewLabel_1);
+		
+		
+		ResultSet rs=null;
+		String[] titles ={"Team ID","Team leader","Projrct ID","Number_of_People"};
+		String sql1="SELECT Team_Num.Team_ID,Stu.Stu_Name,Apply_List.Proj_ID,Team_Num.Num FROM Apply_List,Stu,Team_Num WHERE Apply_List.Stu_ID in (SELECT Team.Stu_ID FROM Team WHERE Team.isCap= 1 AND Team.Stu_ID=Stu.Stu_ID)";
+		Conn c =new Conn(sql1);
+		
+		
+		try {
+			int count = 0;
+			while(rs.next()){
+			count++;
+			}
+			Object[][] info = new Object[count][4];
+			rs=c.pst.executeQuery(sql1);
+			while(rs.next()){
+				info[count][0] = rs.getString("Team_ID");
+				info[count][1] = rs.getString("Stu_Name");
+				info[count][2] = rs.getString("Proj_ID");
+				info[count][3] = rs.getString("Num");
+				count++;
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+			
+		
+		
+		
+		
+		table = new JTable(info,titles);
+		table.setBorder(new LineBorder(new Color(0, 0, 0)));
+		table.setBounds(36, 43, 363, 247);
+		add(table);
+
+	}
+}

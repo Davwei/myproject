@@ -7,8 +7,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import MainPanel.*;
-
-
+import utils.Stu;
 
 import java.awt.FlowLayout;
 import java.awt.Panel;
@@ -19,7 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.CardLayout;
 
 public class Stu_front extends JFrame {
-
+	
 	private JPanel contentPane;
 	JPanel panel=null;
 	/**
@@ -29,9 +28,11 @@ public class Stu_front extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Stu_front frame = new Stu_front();
+					//debug
+					String s = null;
+					Stu_front frame = new Stu_front(s);
 					frame.setVisible(true);
-				} catch (Exception e) {
+				} 	catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -41,7 +42,8 @@ public class Stu_front extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Stu_front() {
+	public Stu_front(String s) {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 452);
 		setResizable(false);
@@ -71,6 +73,7 @@ public class Stu_front extends JFrame {
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Information");
+		
 		mnNewMenu_1.add(mntmNewMenuItem_1);
 		contentPane.add(menuBar, BorderLayout.NORTH);
 		
@@ -78,15 +81,26 @@ public class Stu_front extends JFrame {
 		menuBar.add(mnNewMenu_3);
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Project List");
+		
 		mnNewMenu_3.add(mntmNewMenuItem_6);
 		
 		JMenu mnNewMenu_2 = new JMenu("Others");
 		menuBar.add(mnNewMenu_2);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("About me");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(null, "This system design by Davidwei Copyright_resvered 2015 \n e-mail wangwei3791@outlook.com", "Wurning!", JOptionPane.OK_CANCEL_OPTION);
+			}
+		});
 		mnNewMenu_2.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Help");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(null, "No drugs can help", "Wurning!", JOptionPane.OK_CANCEL_OPTION);
+			}
+		});
 		mnNewMenu_2.add(mntmNewMenuItem_3);
 		
 		
@@ -100,7 +114,7 @@ public class Stu_front extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				panel.setVisible(false);
 				contentPane.remove(panel);
-				panel = new MJpanel();
+				panel = new Team_List_stu();
 				contentPane.add(panel, BorderLayout.CENTER);//保证加入的panel
 				//show Team List 
 				
@@ -110,7 +124,7 @@ public class Stu_front extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				panel.setVisible(false);
 				contentPane.remove(panel);
-				panel =new Apply_List_front();
+				panel =new Join_Team_front(s);
 				contentPane.add(panel, BorderLayout.CENTER);
 			}
 		});
@@ -118,8 +132,25 @@ public class Stu_front extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				panel.setVisible(false);
 				contentPane.remove(panel);
-				panel =new My_Team();
+				panel =new My_Team(s);
 				contentPane.add(panel, BorderLayout.CENTER);
+			}
+		});
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel.setVisible(false);
+				contentPane.remove(panel);
+				panel =new Information();
+				contentPane.add(panel, BorderLayout.CENTER);
+			}
+		});
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel.setVisible(false);
+				contentPane.remove(panel);
+				panel =new Project_List_stu();
+				contentPane.add(panel, BorderLayout.CENTER);
+				
 			}
 		});
 	}

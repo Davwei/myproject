@@ -1,0 +1,10 @@
+package dosql;
+
+public class Insert_Join_Team {
+	
+	public Insert_Join_Team(){
+		
+		
+	}
+
+}

@@ -1,0 +1,69 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+import java.awt.CardLayout;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JLayeredPane;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.LineBorder;
+
+import dosql.Conn;
+
+import javax.swing.JList;
+import javax.swing.JButton;
+
+public class Team_List_stu extends JPanel {
+	private JTable table;
+
+	/**
+	 * Create the panel.
+	 */
+	public Team_List_stu() {
+		setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 701, 22);
+		add(panel);
+		
+		JLabel lblResultset = new JLabel("Result_set");
+		panel.add(lblResultset);
+		
+		JButton btnTeamdetails = new JButton("Team_details");
+		btnTeamdetails.setBounds(515, 39, 143, 23);
+		add(btnTeamdetails);
+		
+		JButton btnNewButton = new JButton("Project_details");
+		btnNewButton.setBounds(515, 87, 143, 23);
+		add(btnNewButton);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 308, 701, 99);
+		add(panel_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Team_List_stu.class.getResource("/resouse/part.jpg")));
+		panel_1.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("To be continue...");
+		lblNewLabel_1.setBounds(548, 143, 143, 15);
+		add(lblNewLabel_1);
+		
+		int count=0;
+		String[] tites ={"Team_ID","Team_leader","Projrct_ID","Number_of_People"};
+		String sql1="Select 'Team_ID',";
+		Conn c =new Conn(sql1);
+		Object[][] info = new Object[count][4];
+		
+		table = new JTable();
+		table.setBorder(new LineBorder(new Color(0, 0, 0)));
+		table.setBounds(36, 43, 363, 247);
+		add(table);
+
+	}
+}

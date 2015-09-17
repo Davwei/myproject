@@ -1,0 +1,14 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+
+public class Auditor_View extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public Auditor_View() {
+
+	}
+
+}

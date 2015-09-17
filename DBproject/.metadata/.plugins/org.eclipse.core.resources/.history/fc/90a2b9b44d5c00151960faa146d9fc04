@@ -1,0 +1,7 @@
+package dosql;
+
+public class Select_Stu_List {
+	public Select_Stu_List(){
+		String sql="";
+	}
+}

@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import MainPanel.MJpanel;
+import MainPanel.Team_List_stu;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -92,7 +92,7 @@ public class Admin_front extends JFrame {
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Help");
 		mnNewMenu_2.add(mntmNewMenuItem_3);
 		
-		MJpanel panel = new MJpanel();
+		Team_List_stu panel = new Team_List_stu();
 		contentPane.add(panel, BorderLayout.CENTER);
 	}
 

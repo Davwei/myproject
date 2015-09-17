@@ -1,0 +1,14 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+
+public class Project_List extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public Project_List() {
+
+	}
+
+}

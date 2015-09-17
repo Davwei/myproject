@@ -1,0 +1,37 @@
+package dosql;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Select_Join_Team {
+	ResultSet rs;
+	
+	public Select_Join_Team(String s){
+		String sql="Select * from Join_Team Where Team_ID ='"+s+"'";
+		Conn c =new Conn(sql);
+		try {
+			c.stmt.executeQuery(sql);
+			rs=c.stmt.getResultSet();
+			int count=0;
+			
+			while(rs.next())
+				count++;
+			
+			Object[][] info =new Object[count][3];
+			
+			
+			
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+}
