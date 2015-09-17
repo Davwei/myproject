@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import MainPanel.*;
+import dosql.login_sql;
 import utils.Stu;
 
 import java.awt.FlowLayout;
@@ -29,7 +30,7 @@ public class Stu_front extends JFrame {
 			public void run() {
 				try {
 					//debug
-					String s = null;
+					String s = "201300301249";
 					Stu_front frame = new Stu_front(s);
 					frame.setVisible(true);
 				} 	catch (Exception e) {
@@ -68,6 +69,10 @@ public class Stu_front extends JFrame {
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("My Team");
 		
 		mnNewMenu.add(mntmNewMenuItem_5);
+		
+		JMenuItem mntmJoinTeamList = new JMenuItem("Join Team List");
+		
+		mnNewMenu.add(mntmJoinTeamList);
 		
 		JMenu mnNewMenu_1 = new JMenu("Personal");
 		menuBar.add(mnNewMenu_1);
@@ -151,6 +156,17 @@ public class Stu_front extends JFrame {
 				panel =new Project_List_stu();
 				contentPane.add(panel, BorderLayout.CENTER);
 				
+			}
+		});
+		mntmJoinTeamList.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!login_sql.check4(s))
+				{
+				JOptionPane.showMessageDialog(null, "you are not a caption", "Worning", JOptionPane.ERROR_MESSAGE);
+				}
+				panel.setVisible(false);
+				panel =new Want_Join(s);
+				contentPane.add(panel);
 			}
 		});
 	}

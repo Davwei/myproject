@@ -69,12 +69,12 @@ public class Team_List_stu extends JPanel {
 		
 		
 		
-		String[] titles ={"Team ID","Team leader","Projrct ID","Number_of_People"};		
+		String[] titles ={"Stu ID","Team leader","Projrct ID","Number_of_People"};		
 		table = new JTable(Select_Team_List. getObject(),titles);
 		
 		
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(0, 35, 452, 214);
+		scrollPane.setBounds(6, 31, 452, 214);
 		add(scrollPane);
 		}
 	}		
