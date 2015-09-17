@@ -1,0 +1,14 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+
+public class Want_Join extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public Want_Join() {
+
+	}
+
+}
