@@ -68,23 +68,4 @@ public class login_sql {
 		}
 		return isfeat;
 	}
-	public static boolean check4(String ID) {
-		boolean isfeat=false;
-		Conn c3 =null;
-		ResultSet rs=null;
-		int count=0;
-		try {
-			String sql1="Select Stu_ID from Team Where Stu_ID='"+ID+"' and isCap = 1";
-			c3 =new Conn(sql1);
-			rs = c3.stmt.executeQuery(sql1);
-			while(rs.next())count++;			
-			if(count>=1)isfeat =true;
-			//System.out.println("count is "+count);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally{
-			c3.close();
-		}
-		return isfeat;
-	}
 }

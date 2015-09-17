@@ -6,9 +6,9 @@ import java.sql.SQLException;
 public class Select_Join_Team {
 	
 	Object[][] info;
-	public Select_Join_Team(String s){//s is the Team leader's Stu_ID
+	public Select_Join_Team(String s){
 		ResultSet rs;
-		String sql="Select Join_Team.Stu_ID,Self_Intro from Join_Team,Team Where Join_Team.Team_ID = Team.Team_ID and Team.Stu_ID='"+s+"' and isCap = 1";
+		String sql="Select * from Join_Team Where Team_ID ='"+s+"'";
 		Conn c =new Conn(sql);
 		try {
 			c.stmt.executeQuery(sql);
@@ -18,14 +18,13 @@ public class Select_Join_Team {
 			while(rs.next())
 				count++;
 			
-			info =new Object[count][2];
-			count=0;
+			info =new Object[count][3];
+			
 			rs =c.stmt.getResultSet();
 			while(rs.next()){
-				info[count][0]=rs.getString("Join_Team.Stu_ID"); 
-				System.out.print(rs.getString("Join_Team.Stu_ID  "));
-				info[count][1]=rs.getString("Self_Intro"); 
-				System.out.println(rs.getString("Self_Intro"));
+				info[count][0]=rs.getString(""); 
+				info[count][1]=rs.getString(""); 
+				info[count][2]=rs.getString(""); 
 				count++;				
 			}
 			
@@ -41,7 +40,7 @@ public class Select_Join_Team {
 		
 		
 	}
-	public static Object[][] getInfo(String s) {
+	public Object[][] getInfo(String s) {
 		Select_Join_Team sjt =new Select_Join_Team(s);
 		return sjt.info;
 	}

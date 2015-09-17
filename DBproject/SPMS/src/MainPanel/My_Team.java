@@ -1,7 +1,6 @@
 package MainPanel;
 
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -50,15 +49,18 @@ public class My_Team extends JPanel {
 		btnNewButton.setBounds(513, 39, 86, 23);
 		add(btnNewButton);
 		
+		ScrollPane scrollPane = new ScrollPane();
+		scrollPane.setBounds(27, 86, 242, 214);
+		add(scrollPane);
+		
+		ScrollPane scrollPane_1 = new ScrollPane();
+		scrollPane_1.setBounds(341, 86, 258, 214);
+		add(scrollPane_1);
+		
 		String[] titles	={"Your_Team_ID","Your_Team_Proj_Nmae"};
 		
 		table = new JTable(Select_My_Team.getInfo(s),titles);
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(27, 86, 282, 214);
-		add(scrollPane);
-		
-		
-		
+		scrollPane.add(table);
 		
 		
 		table_1 = new JTable();
