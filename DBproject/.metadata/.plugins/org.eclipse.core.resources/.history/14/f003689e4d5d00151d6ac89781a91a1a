@@ -8,7 +8,7 @@ public class Select_Team_List {
 	public Select_Team_List(){
 		ResultSet rs=null;
 		
-		String sql1="SELECT Apply_List.Stu_ID,Stu_Name,Proj_ID FROM 	Apply_List,Stu WHERE (Apply_List.Stu_ID in (SELECT Team.Stu_ID FROM Team ,Stu WHERE isCap= 1 and Team.Stu_ID =Stu.Stu_ID) )and Apply_List.Stu_ID=Stu.Stu_ID";
+		String sql1="SELECT Team_ID,Stu_Name,Proj_ID,Num FROM Apply_List inner join Stu,Team_Num WHERE Apply_List.Stu_ID in (SELECT Team.Stu_ID FROM Team WHERE Team.isCap= 1 AND Team.Stu_ID=Stu.Stu_ID)";
 		Conn c =new Conn(sql1);
 		int count = 0;
 			
@@ -26,11 +26,11 @@ public class Select_Team_List {
 				
 				info[count][0] = rs.getString("Team_ID");
 				
-				info[count][1] = rs.getString("Stu_ID");
+				info[count][1] = rs.getString("Stu_Name");
 				
-				info[count][2] = rs.getString("Stu_Name");
+				info[count][2] = rs.getString("Proj_ID");
 				
-				info[count][3] = rs.getString("Proj_ID");
+				info[count][3] = rs.getString("Num");
 				
 				count++;
 				}

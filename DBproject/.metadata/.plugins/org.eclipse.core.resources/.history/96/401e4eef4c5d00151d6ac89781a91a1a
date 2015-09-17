@@ -26,11 +26,11 @@ public class Select_Team_List {
 				
 				info[count][0] = rs.getString("Team_ID");
 				
-				info[count][1] = rs.getString("Stu_ID");
+				info[count][1] = rs.getString("Stu_Name");
 				
-				info[count][2] = rs.getString("Stu_Name");
+				info[count][2] = rs.getString("Proj_ID");
 				
-				info[count][3] = rs.getString("Proj_ID");
+				info[count][3] = rs.getString("Num");
 				
 				count++;
 				}
