@@ -70,7 +70,7 @@ public class Stu_front extends JFrame {
 		
 		mnNewMenu.add(mntmNewMenuItem_5);
 		
-		JMenuItem mntmJoinTeamList = new JMenuItem("Join Team List");
+		JMenuItem mntmJoinTeamList = new JMenuItem("Join Team List(Caption Only)");
 		
 		mnNewMenu.add(mntmJoinTeamList);
 		
@@ -88,6 +88,10 @@ public class Stu_front extends JFrame {
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Project List");
 		
 		mnNewMenu_3.add(mntmNewMenuItem_6);
+		
+		JMenuItem mntmConcludebook = new JMenuItem("Conclude_Book(Team_Leader Only)");
+		
+		mnNewMenu_3.add(mntmConcludebook);
 		
 		JMenu mnNewMenu_2 = new JMenu("Others");
 		menuBar.add(mnNewMenu_2);
@@ -111,6 +115,10 @@ public class Stu_front extends JFrame {
 		
 		panel =new Welcome_p();		
 		contentPane.add(panel, BorderLayout.CENTER);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(Stu_front.class.getResource("/resouse/welcome_icon.png")));
+		panel.add(lblNewLabel, BorderLayout.CENTER);
 		
 		
 		
@@ -163,10 +171,24 @@ public class Stu_front extends JFrame {
 				if(!login_sql.check4(s))
 				{
 				JOptionPane.showMessageDialog(null, "you are not a caption", "Worning", JOptionPane.ERROR_MESSAGE);
-				}
+				}else{
 				panel.setVisible(false);
 				panel =new Want_Join(s);
 				contentPane.add(panel);
+				}
+			}
+		});
+		mntmConcludebook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!login_sql.check4(s))
+				{
+				JOptionPane.showMessageDialog(null, "you are not a caption", "Worning", JOptionPane.ERROR_MESSAGE);
+				
+				}else{
+				panel.setVisible(false);
+				panel =new Conclude_Push(s);
+				contentPane.add(panel);
+				}
 			}
 		});
 	}

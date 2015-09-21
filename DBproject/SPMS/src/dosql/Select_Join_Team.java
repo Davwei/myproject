@@ -11,8 +11,8 @@ public class Select_Join_Team {
 		String sql="Select Join_Team.Stu_ID,Self_Intro from Join_Team,Team Where Join_Team.Team_ID = Team.Team_ID and Team.Stu_ID='"+s+"' and isCap = 1";
 		Conn c =new Conn(sql);
 		try {
-			c.stmt.executeQuery(sql);
-			rs=c.stmt.getResultSet();
+			rs=c.stmt.executeQuery(sql);
+			//rs=c.stmt.getResultSet();
 			int count=0;
 			
 			while(rs.next())
@@ -20,12 +20,12 @@ public class Select_Join_Team {
 			
 			info =new Object[count][2];
 			count=0;
-			rs =c.stmt.getResultSet();
+			rs=c.stmt.executeQuery(sql);
 			while(rs.next()){
 				info[count][0]=rs.getString("Join_Team.Stu_ID"); 
-				System.out.print(rs.getString("Join_Team.Stu_ID  "));
+				
 				info[count][1]=rs.getString("Self_Intro"); 
-				System.out.println(rs.getString("Self_Intro"));
+				
 				count++;				
 			}
 			

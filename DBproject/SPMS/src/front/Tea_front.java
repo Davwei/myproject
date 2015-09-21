@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import MainPanel.Project_List_tea;
 import MainPanel.Team_List_stu;
 
 import javax.swing.JMenuBar;
@@ -17,10 +18,12 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Tea_front extends JFrame {
-
-	private JPanel contentPane;
+	
+	private JPanel contentPane,panel;
 
 	/**
 	 * Launch the application.
@@ -29,8 +32,8 @@ public class Tea_front extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Tea_front frame = new Tea_front();
-					frame.setVisible(true);
+					//Tea_front frame = new Tea_front();
+					//frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,7 +44,7 @@ public class Tea_front extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Tea_front() {
+	public Tea_front(String s) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 452);
 		setResizable(false);
@@ -78,6 +81,7 @@ public class Tea_front extends JFrame {
 		menuBar.add(mnNewMenu_4);
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Conclude List");
+		
 		mnNewMenu_4.add(mntmNewMenuItem_5);
 		
 		JMenu mnNewMenu_2 = new JMenu("Others");
@@ -89,8 +93,17 @@ public class Tea_front extends JFrame {
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Help");
 		mnNewMenu_2.add(mntmNewMenuItem_3);
 		
-		Team_List_stu panel = new Team_List_stu();
+		panel = new Team_List_stu();
 		contentPane.add(panel, BorderLayout.CENTER);
+		
+		mntmNewMenuItem_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				panel.setVisible(false);
+				contentPane.remove(panel);
+				panel =new Project_List_tea(s);
+				contentPane.add(panel);
+			}
+		});
 	}
 
 }

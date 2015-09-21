@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
@@ -54,27 +55,29 @@ public class Team_List_stu extends JPanel {
 		add(panel_2);
 		panel_2.setLayout(null);
 		
-		JButton btnTeamdetails = new JButton("Team_details");
-		btnTeamdetails.setBounds(20, 39, 123, 23);
-		panel_2.add(btnTeamdetails);
-		
-		JButton btnNewButton = new JButton("Project_details");
-		btnNewButton.setBounds(20, 116, 123, 23);
-		panel_2.add(btnNewButton);
-		
 		JLabel lblNewLabel_1 = new JLabel("To be continue...");
 		lblNewLabel_1.setBounds(36, 189, 102, 15);
 		panel_2.add(lblNewLabel_1);
 		
+		JLabel lblNewLabel_2 = new JLabel("please remember the ID ");
+		lblNewLabel_2.setBounds(10, 10, 147, 15);
+		panel_2.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("you can use it");
+		lblNewLabel_3.setBounds(14, 44, 130, 15);
+		panel_2.add(lblNewLabel_3);
 		
 		
 		
-		String[] titles ={"Stu ID","Team leader","Projrct ID","Number_of_People"};		
+		
+		String[] titles ={"Team ID","Stu ID","Stu Name","Projrct ID"};		
 		table = new JTable(Select_Team_List. getObject(),titles);
+		
 		
 		
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(6, 31, 452, 214);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED );
 		add(scrollPane);
 		}
 	}		

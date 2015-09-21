@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="front.Stu_front"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="dosql.Conn"/>
 <fullyQualifiedTypeName name="dosql.Select_Team_List"/>
 <fullyQualifiedTypeName name="dosql.Insert_Join_Team"/>
@@ -15,4 +14,15 @@
 <fullyQualifiedTypeName name="dosql.login_sql"/>
 <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
 <fullyQualifiedTypeName name="dosql.Select_Join_Team"/>
+<fullyQualifiedTypeName name="dosql.Delect_Join_Team"/>
+<fullyQualifiedTypeName name="dosql.Insert_Teammate"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseAdapter"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
+<fullyQualifiedTypeName name="javax.swing.JPopupMenu"/>
+<fullyQualifiedTypeName name="javax.swing.ScrollPaneConstants"/>
+<fullyQualifiedTypeName name="dosql.Delect_Team"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="dosql.Select_Teammate_List"/>
+<fullyQualifiedTypeName name="dosql.Insert_Proj"/>
+<fullyQualifiedTypeName name="dosql.Delete_Proj"/>
 </qualifiedTypeNameHistroy>

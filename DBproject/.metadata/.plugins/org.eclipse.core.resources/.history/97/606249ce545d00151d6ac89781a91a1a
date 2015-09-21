@@ -1,0 +1,50 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTable;
+
+import dosql.Select_Join_Team;
+import javax.swing.JTextField;
+
+public class Want_Join extends JPanel {
+	private JTable table;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Create the panel.
+	 */
+	public Want_Join(String s) {
+		setLayout(new BorderLayout(0, 0));
+		
+		
+		String[] title={"Stu ID","Self_Introdution"};
+		table = new JTable(Select_Join_Team.getInfo(s),title);
+		JScrollPane scrollPane = new JScrollPane(table);
+		add(scrollPane, BorderLayout.CENTER);
+		
+		JPanel panel = new JPanel();
+		add(panel, BorderLayout.NORTH);
+		
+		JButton btnNewButton = new JButton("Allow ID");
+		panel.add(btnNewButton);
+		
+		textField = new JTextField();
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("Don't Allow ID");
+		panel.add(btnNewButton_1);
+		
+		textField_1 = new JTextField();
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+
+	}
+
+}

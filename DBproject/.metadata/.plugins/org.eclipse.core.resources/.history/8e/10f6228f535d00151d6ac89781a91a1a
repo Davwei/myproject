@@ -1,0 +1,14 @@
+package dosql;
+
+import java.sql.ResultSet;
+
+public class Delect_Join_Team {
+	
+	Delect_Join_Team(String team,String stu){
+		Conn c;
+		
+		String sql="DELETE FROM `Join_Team` WHERE (`Team_ID`='"+team+"') AND (`Stu_ID`='"+stu+"')";
+		
+		c.stmt.executeUpdate(sql);
+	}
+}

@@ -1,0 +1,14 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+
+public class Conclude_List extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public Conclude_List() {
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+
+public class Team_Mate extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public Team_Mate() {
+
+	}
+
+}

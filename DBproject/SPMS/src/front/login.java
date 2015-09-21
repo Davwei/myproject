@@ -190,7 +190,7 @@ public class login {
 			if(rdbtnNewRadioButton_1.isSelected())
 				if(login_sql.check2(id, paw))
 					{ 
-					s=new Tea_front();
+					s=new Tea_front(login.SID);
 					s.setVisible(true);
 					frame.setVisible(false);
 					}

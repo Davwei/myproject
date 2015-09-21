@@ -1,0 +1,106 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import dosql.Delete_Team;
+import dosql.Select_My_Team;
+import dosql.Select_Teammate_List;
+import utils.Stu;
+
+import javax.swing.JTable;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.ScrollPane;
+
+public class My_Team extends JPanel {
+	private JTable table;
+	private JTable table_1;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTable table_2;
+
+	/**
+	 * Create the panel.
+	 */
+	public My_Team(String s) {
+		setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(27, 24, 242, 38);
+		add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblYourTeamId = new JLabel("Your team ID List as followed");
+		lblYourTeamId.setBounds(32, 10, 200, 15);
+		panel.add(lblYourTeamId);
+		
+		JButton btnLeaveATeam = new JButton("Leave a Team");
+		
+		btnLeaveATeam.setBounds(324, 24, 145, 23);
+		add(btnLeaveATeam);
+		
+		String[] titles	={"Your_Team_ID","Your_Team_Proj_Nmae"};
+		
+		table = new JTable(Select_My_Team.getInfo(s),titles);
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(27, 86, 282, 214);
+		add(scrollPane);
+		
+		textField = new JTextField();
+		textField.setBounds(476, 25, 97, 21);
+		add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblCaptionIsNot = new JLabel("Caption is not allowed leave his team");
+		lblCaptionIsNot.setBounds(324, 57, 233, 15);
+		add(lblCaptionIsNot);
+		
+		
+		
+		String[] title_2={"Mate ID","Mate Name"};
+		table_2 = new JTable(Select_Teammate_List.getInfo(textField_1.getText()),title_2);
+		JScrollPane scrollPane_1 = new JScrollPane(table_2);
+		add(scrollPane_1);
+		
+		JButton btnYourTeammate = new JButton("your teammate");
+		btnYourTeammate.setBounds(541, 277, 111, 23);
+		add(btnYourTeammate);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(541, 246, 66, 21);
+		add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblWhichTeam = new JLabel("which team?");
+		lblWhichTeam.setBounds(541, 221, 111, 15);
+		add(lblWhichTeam);
+		
+		JLabel lblTeamId = new JLabel(": Team ID");
+		lblTeamId.setBounds(613, 249, 68, 15);
+		add(lblTeamId);
+		
+		JLabel lblTeamId_1 = new JLabel(": Team ID");
+		lblTeamId_1.setBounds(583, 24, 69, 23);
+		add(lblTeamId_1);
+		
+		btnLeaveATeam.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Delete_Team dt =new Delete_Team(s,textField.getText());
+				JOptionPane.showMessageDialog(null, "Exit a Team now", "succeed ", JOptionPane.OK_CANCEL_OPTION);
+			}
+		});
+		
+		
+		
+		
+
+	}
+}

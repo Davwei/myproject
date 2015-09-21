@@ -8,7 +8,7 @@ public class Select_Team_List {
 	public Select_Team_List(){
 		ResultSet rs=null;
 		
-		String sql1="SELECT Apply_List.Stu_ID,Stu_Name,Proj_ID FROM 	Apply_List,Stu WHERE (Apply_List.Stu_ID in (SELECT Team.Stu_ID FROM Team ,Stu WHERE isCap= 1 and Team.Stu_ID =Stu.Stu_ID) )and Apply_List.Stu_ID=Stu.Stu_ID";
+		String sql1="SELECT Apply_List.Team_ID,Apply_List.Stu_ID,Stu_Name,Proj_ID FROM Apply_List,Stu,Team WHERE (Apply_List.Stu_ID in (SELECT Team.Stu_ID FROM Team ,Stu WHERE (isCap= 1 and Apply_List.status) )and Apply_List.Stu_ID=Stu.Stu_ID and Team.Stu_ID = Apply_List.Stu_ID and isCap =1 and Apply_List.Team_ID = Team.Team_ID)";
 		Conn c =new Conn(sql1);
 		int count = 0;
 			

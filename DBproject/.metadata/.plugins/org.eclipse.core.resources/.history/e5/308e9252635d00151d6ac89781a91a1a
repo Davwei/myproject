@@ -1,0 +1,22 @@
+package dosql;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Select_Teammate_List {
+	public Select_Teammate_List(String s){
+		Conn c;
+		String sql = "Select Team.Stu_ID,Stu_Name from Team, Stu where Team_ID ='"+s+"' and Team.Stu_ID =Stu.Stu_ID";
+		ResultSet rs;
+		c =new Conn(sql);
+		try {
+			rs = c.stmt.executeQuery(sql);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

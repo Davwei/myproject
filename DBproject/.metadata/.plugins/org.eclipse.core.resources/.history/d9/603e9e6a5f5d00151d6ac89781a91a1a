@@ -1,0 +1,75 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import javax.swing.JTable;
+
+import dosql.Delete_Join_Team;
+import dosql.Insert_Teammate;
+import dosql.Select_Join_Team;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
+
+public class Want_Join extends JPanel {
+	private JTable table;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Create the panel.
+	 */
+	public Want_Join(String s) {
+		setLayout(new BorderLayout(0, 0));
+		
+		
+		String[] title={"Stu ID","Self_Introdution"};
+		table = new JTable(Select_Join_Team.getInfo(s),title);
+		JScrollPane scrollPane = new JScrollPane(table);
+		add(scrollPane, BorderLayout.CENTER);
+		
+		JPanel panel = new JPanel();
+		add(panel, BorderLayout.NORTH);
+		
+		JButton btnNewButton = new JButton("Allow ID");
+		
+		panel.add(btnNewButton);
+		
+		textField = new JTextField();
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("Don't Allow ID");
+		panel.add(btnNewButton_1);
+		
+		textField_1 = new JTextField();
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Delete_Join_Team djt =new Delete_Join_Team(textField_1.getText());
+				JOptionPane.showMessageDialog(null, "Please reopen this windows", "succeed ", JOptionPane.OK_CANCEL_OPTION);
+			}
+		});
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					Insert_Teammate djt =new Insert_Teammate(s,textField.getText());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(null, "Please reopen this windows", "succeed ", JOptionPane.OK_CANCEL_OPTION);
+			}
+		});
+
+	}
+
+}
