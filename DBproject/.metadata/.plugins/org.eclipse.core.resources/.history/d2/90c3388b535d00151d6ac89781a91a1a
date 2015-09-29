@@ -1,8 +1,0 @@
-package dosql;
-
-public class Delect_Join_Team {
-	Delect_Join_Team(){
-		
-		
-	}
-}

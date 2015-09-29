@@ -11,7 +11,7 @@ public class Select_My_Team {
 	public Select_My_Team(String s){
 		ResultSet rs=null;
 		
-		String sql1="SELECT a.Team_ID,Proj.Proj_Name FROM Team as a,Team as b,Apply_List INNER JOIN Proj ON Apply_List.Proj_ID = Proj.Proj_ID WHERE a.isCap = 1 AND a.Team_ID = b.Team_ID AND b.Stu_ID = '"+s+"' AND a.Stu_ID = Apply_List.Stu_ID";
+		String sql1="select Apply_List.Team_ID ,Proj_Name from Apply_List,Proj where (Apply_List.Team_ID in( select b.Team_ID from Team as b where Stu_ID ='"+s+"' ) AND Apply_List.Proj_ID =Proj.Proj_ID)";
 		Conn c =new Conn(sql1);
 		int count = 0;
 			

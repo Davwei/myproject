@@ -9,7 +9,6 @@
 <fullyQualifiedTypeName name="dosql.Select_Team_List"/>
 <fullyQualifiedTypeName name="dosql.Insert_Join_Team"/>
 <fullyQualifiedTypeName name="dosql.Select_Project_List"/>
-<fullyQualifiedTypeName name="utils.Stu"/>
 <fullyQualifiedTypeName name="dosql.Select_My_Team"/>
 <fullyQualifiedTypeName name="dosql.login_sql"/>
 <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
@@ -21,8 +20,11 @@
 <fullyQualifiedTypeName name="javax.swing.JPopupMenu"/>
 <fullyQualifiedTypeName name="javax.swing.ScrollPaneConstants"/>
 <fullyQualifiedTypeName name="dosql.Delect_Team"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="dosql.Select_Teammate_List"/>
 <fullyQualifiedTypeName name="dosql.Insert_Proj"/>
 <fullyQualifiedTypeName name="dosql.Delete_Proj"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="dosql.Select_Conclude_List"/>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="utils.Stu"/>
 </qualifiedTypeNameHistroy>
