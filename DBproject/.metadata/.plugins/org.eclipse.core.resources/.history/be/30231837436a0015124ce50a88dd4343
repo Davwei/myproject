@@ -1,0 +1,54 @@
+package dosql;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import utils.Stu;
+
+public class Delete_Join_Team {
+	public Delete_Join_Team(){
+		
+	}
+	public boolean Delete(String tid,String s,String stu){
+		Conn c = null;
+		Conn c1 = null ;
+		ResultSet rs;
+		
+		String sql1="Select Team_ID from Team where Stu_ID ='"+s+"' and Team_ID = '"+tid+"' and isCap = 1";
+		int count =0;
+		try {
+			c1 =new Conn(sql1);
+			rs=c1.stmt.executeQuery(sql1);
+			while(rs.next())
+				count++;
+			c1.close();
+			System.out.println("Delete is team leader "+count);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		if(count!=0){
+			String sql="DELETE FROM `Join_Team` WHERE (`Team_ID`='"+tid+"') AND (`Stu_ID`='"+stu+"')";
+			
+			try {
+				c =new Conn(sql);
+				c.stmt.executeUpdate(sql);
+				System.out.println("Delete is team leader succedd");
+				c.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return true;
+		}else{
+			return false;
+		}
+		
+		
+		
+		
+	}
+}

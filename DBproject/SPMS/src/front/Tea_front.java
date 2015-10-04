@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import MainPanel.Apply_List_tea;
 import MainPanel.Project_List_tea;
 import MainPanel.Team_List_stu;
 
@@ -77,6 +78,10 @@ public class Tea_front extends JFrame {
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("Project List");
 		mnNewMenu_3.add(mntmNewMenuItem_6);
 		
+		JMenuItem mntmNewMenuItem_7 = new JMenuItem("Apply List");
+		
+		mnNewMenu_3.add(mntmNewMenuItem_7);
+		
 		JMenu mnNewMenu_4 = new JMenu("Conclude");
 		menuBar.add(mnNewMenu_4);
 		
@@ -104,6 +109,13 @@ public class Tea_front extends JFrame {
 				contentPane.add(panel);
 			}
 		});
+		mntmNewMenuItem_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel.setVisible(false);
+				contentPane.remove(panel);
+				panel =new Apply_List_tea();
+				contentPane.add(panel);
+			}
+		});
 	}
-
 }

@@ -45,8 +45,8 @@ public class Want_Join extends JPanel {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String tid =(String) table.getValueAt(table.getSelectedRow(), 1);
-				String sid =(String) table.getValueAt(table.getSelectedRow(), 2);
+				String tid =(String) table.getValueAt(table.getSelectedRow(), 0);
+				String sid =(String) table.getValueAt(table.getSelectedRow(), 1);
 				Delete_Join_Team djt =new Delete_Join_Team();
 				djt.Delete(tid,s,sid);
 				
@@ -57,11 +57,12 @@ public class Want_Join extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
-					String tid =(String) table.getValueAt(table.getSelectedRow(), 0);
+					String tid =(String) table.getValueAt(table.getSelectedRow(), 0);//jtabe from 0
 					System.out.println(tid);
 					String sid =(String) table.getValueAt(table.getSelectedRow(), 1);
 					System.out.println(sid);
 					Delete_Join_Team djt =new Delete_Join_Team();
+					
 					djt.Delete(tid,s,sid);
 					
 					

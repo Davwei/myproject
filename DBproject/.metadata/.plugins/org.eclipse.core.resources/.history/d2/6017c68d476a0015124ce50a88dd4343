@@ -1,0 +1,30 @@
+package dosql;
+
+import java.sql.SQLException;
+
+import utils.Stu;
+
+public class Insert_Want_Proj {
+	
+	public Insert_Want_Proj(String sid,String proj_id) throws SQLException{
+		int count =0;
+		String sql2 ="Select * from Apply_List where (Stu_ID ='"+sid+"' and Proj_ID ='"+proj_id+"')";
+		String sql1 ="Select * from Apply_List";
+		
+		String sql="INSERT INTO `Apply_List` (`Apply_ID`, `Stu_ID`, `Proj_ID`,`Time`,`status`)VALUES('"+Teamid+"','"+s+"','"+selfintro+"')";
+		Conn c =new Conn(sql);
+		Conn c1 =new Conn(sql1);
+		Conn c2 =new Conn(sql2);
+		
+		
+		
+		
+		c.stmt.executeUpdate(sql);
+			
+			
+			
+		c.close();
+		
+	}
+
+}

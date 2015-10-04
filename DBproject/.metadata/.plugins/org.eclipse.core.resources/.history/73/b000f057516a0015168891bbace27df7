@@ -1,0 +1,44 @@
+package MainPanel;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import java.awt.FlowLayout;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+
+public class Apply_List_tea extends JPanel {
+	private JTable table;
+
+	/**
+	 * Create the panel.
+	 */
+	public Apply_List_tea() {
+		setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBounds(10, 10, 430, 203);
+		add(panel);
+		panel.setLayout(new BorderLayout(0, 0));
+		String[] title={};		
+		table = new JTable();
+		
+		JScrollPane scrollPane = new JScrollPane(table);
+		panel.add(scrollPane, BorderLayout.CENTER);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(10, 223, 430, 45);
+		add(panel_1);
+		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JButton button = new JButton("Allow it");
+		panel_1.add(button);
+		
+		JButton button_1 = new JButton("Don't allow it");
+		panel_1.add(button_1);
+
+	}
+}

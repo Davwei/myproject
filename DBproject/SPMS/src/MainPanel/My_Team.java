@@ -25,8 +25,6 @@ import java.awt.BorderLayout;
 public class My_Team extends JPanel {
 	private JTable table;
 	private JTable table_1;
-	private JTextField textField;
-	private JTextField textField_1;
 	private JTable table_2;
 	JPanel panel_3 ;
 	/**
@@ -56,17 +54,12 @@ public class My_Team extends JPanel {
 		scrollPane.setBounds(27, 86, 282, 214);
 		add(scrollPane);
 		
-		textField = new JTextField();
-		textField.setBounds(476, 25, 97, 21);
-		add(textField);
-		textField.setColumns(10);
-		
 		JLabel lblCaptionIsNot = new JLabel("Caption is not allowed leave his team");
 		lblCaptionIsNot.setBounds(324, 57, 233, 15);
 		add(lblCaptionIsNot);
 		
-		JLabel lblTeamId_1 = new JLabel(": Team ID");
-		lblTeamId_1.setBounds(583, 24, 69, 23);
+		JLabel lblTeamId_1 = new JLabel("Please choose a Team");
+		lblTeamId_1.setBounds(479, 24, 145, 23);
 		add(lblTeamId_1);
 		
 		JPanel panel_2 = new JPanel();
@@ -78,12 +71,8 @@ public class My_Team extends JPanel {
 		JPanel panel_1 = new JPanel();
 		panel_2.add(panel_1, BorderLayout.NORTH);
 		
-		JLabel lblTeamId = new JLabel(" Team ID");
+		JLabel lblTeamId = new JLabel(" Team ID choosed on left");
 		panel_1.add(lblTeamId);
-		
-		textField_1 = new JTextField();
-		panel_1.add(textField_1);
-		textField_1.setColumns(10);
 		
 		
 		
@@ -98,10 +87,12 @@ public class My_Team extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				panel_3.setVisible(false);
 				panel_2.remove(panel_3);
-				if(textField_1.getText().equals(""))
+				String tid="";
+				tid=(String)table.getValueAt(table.getSelectedRow(), 0);
+				if(tid.equals(""))
 				 System.out.println("Non Team");
 				else{
-					panel_3 =new My_team_teammate(textField_1.getText());
+					panel_3 =new My_team_teammate(tid);
 					panel_2.add(panel_3, BorderLayout.CENTER);
 				}
 			}
@@ -109,9 +100,11 @@ public class My_Team extends JPanel {
 		
 		btnLeaveATeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				Delete_Team dt =new Delete_Team(s,textField.getText());
+				String tid="";
+				tid=(String)table.getValueAt(table.getSelectedRow(), 0);
 				JOptionPane.showMessageDialog(null, "Exit a Team now", "succeed ", JOptionPane.OK_CANCEL_OPTION);
+				Delete_Team dt =new Delete_Team(s,tid);
+				
 			}
 		});
 		

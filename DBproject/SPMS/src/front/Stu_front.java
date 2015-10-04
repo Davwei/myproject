@@ -161,7 +161,7 @@ public class Stu_front extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				panel.setVisible(false);
 				contentPane.remove(panel);
-				panel =new Project_List_stu();
+				panel =new Project_List_stu(s);
 				contentPane.add(panel, BorderLayout.CENTER);
 				
 			}

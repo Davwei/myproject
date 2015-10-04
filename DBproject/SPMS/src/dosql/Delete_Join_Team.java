@@ -9,7 +9,7 @@ public class Delete_Join_Team {
 	public Delete_Join_Team(){
 		
 	}
-	public boolean Delete(String tid,String s,String stu){
+	public boolean Delete(String tid,String s,String stu){//team id ,cap id ,stu id
 		Conn c = null;
 		Conn c1 = null ;
 		ResultSet rs;
@@ -22,6 +22,7 @@ public class Delete_Join_Team {
 			while(rs.next())
 				count++;
 			c1.close();
+			//System.out.println("Delete is team leader "+count);
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -34,7 +35,7 @@ public class Delete_Join_Team {
 			try {
 				c =new Conn(sql);
 				c.stmt.executeUpdate(sql);
-				
+				//System.out.println("Delete is team leader succedd");
 				c.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

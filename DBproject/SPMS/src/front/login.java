@@ -32,6 +32,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import dosql.login_sql;
 import utils.Stu;
 public class login {
@@ -39,7 +42,7 @@ public class login {
 	private JFrame frame;
 	private JTextField textField;
 	private JPasswordField passwordField;
-	JRadioButton rdbtnNewRadioButton,rdbtnNewRadioButton_1,rdbtnNewRadioButton_2;
+	JRadioButton rdbtnNewRadioButton,rdbtnNewRadioButton_1;
 	Frame s;
 	 static String SID=null;	
 	/**
@@ -59,6 +62,9 @@ public class login {
 				}
 			}
 		});
+		
+		
+		
 	}
 
 	/**
@@ -143,11 +149,7 @@ public class login {
 		rdbtnNewRadioButton_1 = new JRadioButton("tea");
 		panel_7.add(rdbtnNewRadioButton_1);
 		
-		rdbtnNewRadioButton_2 = new JRadioButton("admin");
-		panel_7.add(rdbtnNewRadioButton_2);
-		
-		ButtonGroup bg =new ButtonGroup();//ตฅัก
-		bg.add(rdbtnNewRadioButton_2);
+		ButtonGroup bg =new ButtonGroup();
 		bg.add(rdbtnNewRadioButton_1);
 		bg.add(rdbtnNewRadioButton);
 		
@@ -194,13 +196,7 @@ public class login {
 					s.setVisible(true);
 					frame.setVisible(false);
 					}
-			if(rdbtnNewRadioButton_2.isSelected())
-				if(login_sql.check3(id, paw)){
-					
-					s=new Admin_front();
-					s.setVisible(true);
-					frame.setVisible(false);
-					}
+			
 			
 		}
 		
